@@ -26,18 +26,18 @@ import java.net.URI
 class MainActivity : AppCompatActivity() {
 
     private lateinit var pickMedia: ActivityResultLauncher<PickVisualMediaRequest>
-//    private lateinit var photoUri: Uri
+    private lateinit var photoUri: Uri
 
     private lateinit var binding: ActivityMainBinding
 
-//    val takeCameraPick = registerForActivityResult(ActivityResultContracts.TakePicture()) { sucess ->
-//        if (sucess) {
-//            Log.d("PicturePicker", "Selected URI: $sucess")
-//            binding.imgageView1.setImageURI(photoUri)
-//        } else {
-//            Log.d("camera", "Image capture cancelled")
-//        }
-//    }
+    val takeCameraPick = registerForActivityResult(ActivityResultContracts.TakePicture()) { sucess ->
+        if (sucess) {
+            Log.d("PicturePicker", "Selected URI: $sucess")
+            binding.imgageView1.setImageURI(photoUri)
+        } else {
+            Log.d("camera", "Image capture cancelled")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity() {
 //           chooseFromWhereToPick()
         }
 
-//        binding.btnimage1.setOnClickListener {
-//            CaptureImageFromCamera()
-//        }
+        binding.btnimage1.setOnClickListener {
+            CaptureImageFromCamera()
+        }
 
         pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
                 if (uri != null) {
@@ -69,25 +69,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun chooseFromWhereToPick() {
-////        AlertDialog.Builder()
-//    }
-//
-//    private fun CaptureImageFromCamera() {
-//        // Step 3: Create temporary file
-//        val imageFile = File.createTempFile("IMG_", ".jpg", cacheDir)
-//
-//        // Step 4: Get content URI using FileProvider
-//        photoUri = FileProvider.getUriForFile(
-//            this,
-//            "${packageName}.provider",
-//            imageFile
-//        )
-//
-//        // Step 5: Launch the camera
-//        takeCameraPick.launch(photoUri)
-//    }
-//
+    private fun chooseFromWhereToPick() {
+//        AlertDialog.Builder()
+    }
+
+    private fun CaptureImageFromCamera() {
+        // Step 3: Create temporary file
+        val imageFile = File.createTempFile("IMG_", ".jpg", cacheDir)
+
+        // Step 4: Get content URI using FileProvider
+        photoUri = FileProvider.getUriForFile(
+            this,
+            "${packageName}.provider",
+            imageFile
+        )
+
+        // Step 5: Launch the camera
+        takeCameraPick.launch(photoUri)
+    }
+
     private fun pickImageFromGallery() {
         pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
