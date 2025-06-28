@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     val takeCameraPick = registerForActivityResult(ActivityResultContracts.TakePicture()) { sucess ->
         if (sucess) {
             Log.d("PicturePicker", "Selected URI: $sucess")
-            binding.imgageView1.setImageURI(photoUri)
+            binding.imageView.setImageURI(photoUri)
         } else {
             Log.d("camera", "Image capture cancelled")
         }
@@ -51,13 +51,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnimage.setOnClickListener {
-            pickImageFromGallery()
-//           chooseFromWhereToPick()
+//            pickImageFromGallery()
+           chooseFromWhereToPick()
         }
 
-        binding.btnimage1.setOnClickListener {
-            CaptureImageFromCamera()
-        }
+//        binding.btnimage1.setOnClickListener {
+////            CaptureImageFromCamera()
+//            chooseFromWhereToPick()
+//        }
 
         pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
                 if (uri != null) {
@@ -70,8 +71,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun chooseFromWhereToPick() {
-//        AlertDialog.Builder()
+        val options = arrayOf("Choose from Gallery", "Capture from Camera")
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Select Image Source")
+            .setItems(options) { dialog, which ->
+                when (which) {
+                    0 -> pickImageFromGallery()
+                    1 -> CaptureImageFromCamera()
+                }
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
+
 
     private fun CaptureImageFromCamera() {
         // Step 3: Create temporary file
