@@ -1,15 +1,11 @@
 package com.tops.gallery
 
-import android.content.DialogInterface
+
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
-import android.view.inputmethod.InputBinding
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,7 +16,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.tops.gallery.databinding.ActivityMainBinding
 import java.io.File
-import java.net.URI
 
 
 class MainActivity : AppCompatActivity() {
@@ -55,10 +50,10 @@ class MainActivity : AppCompatActivity() {
            chooseFromWhereToPick()
         }
 
-//        binding.btnimage1.setOnClickListener {
-////            CaptureImageFromCamera()
-//            chooseFromWhereToPick()
-//        }
+        binding.btnNextPage.setOnClickListener {
+            val intent = Intent(this, NewActivity::class.java)
+            startActivity(intent)
+        }
 
         pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
                 if (uri != null) {

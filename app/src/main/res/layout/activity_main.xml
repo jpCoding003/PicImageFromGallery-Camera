@@ -32,28 +32,17 @@
             android:fontFamily="serif"/>
     </LinearLayout>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_marginTop="12dp">-->
 
-<!--        <androidx.constraintlayout.utils.widget.ImageFilterView-->
-<!--            android:id="@+id/imgageView1"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="150dp"-->
-<!--            android:src="@drawable/ic_launcher_background"/>-->
-
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/btnimage1"-->
-<!--            android:layout_marginStart="12dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:backgroundTint="@color/design_default_color_primary_dark"-->
-<!--            android:text="Image"-->
-<!--            android:fontFamily="serif"/>-->
-<!--    </LinearLayout>-->
-
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNextPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next page"
+        android:layout_marginTop="45dp"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="12dp"
+        android:textSize="25sp"
+        android:textColor="#90CAF9"
+        android:fontFamily="serif"
+        android:textStyle="italic|bold"/>
 </LinearLayout>

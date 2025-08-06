@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".NewActivity">
+    
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/galleryimgview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:civ_border_width="5dp"
+        app:civ_border_color="@color/black"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Import From gallery"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="5dp"
+        android:textStyle="bold|italic"
+        android:textSize="17sp"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cameraimgview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:civ_border_width="5dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Import From Camera"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="5dp"
+        android:textStyle="bold|italic"
+        android:textSize="17sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="end"
+        android:text="Back"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="5dp"
+        android:textStyle="bold|italic"
+        android:textSize="17sp"/>
+
+</LinearLayout>
